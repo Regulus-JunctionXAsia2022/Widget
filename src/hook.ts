@@ -25,10 +25,10 @@ export const useMessageListener = () => {
             default:
               break;
           }
-        } else {
         }
       },
     );
+    window.parent.postMessage({ type: "initialize" }, "*");
   }, []);
 };
 
