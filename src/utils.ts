@@ -1,6 +1,6 @@
-type childMessage = { type: "close" | "getHeart" }};
-type parentMessage = { type: "name"; data: string };
+type ChildMessage = { type: "close" | "getHeart" };
+type ParentMessage = { type: "name"; data: string };
 
-export const postMessage = (message: childMessage) => {
+export const postMessage = (message: ChildMessage) => {
   window.parent.postMessage(message, "*");
 };
