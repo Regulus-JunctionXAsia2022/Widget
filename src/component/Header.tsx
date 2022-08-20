@@ -13,7 +13,7 @@ export const Header = () => {
           title="zepep"
         />
       </div>
-      <div className="introduction">ZEPEP since 22.08.21.</div>
+      <div className="introduction">ZEPEP since 22.08.21. </div>
     </div>
   );
 };
