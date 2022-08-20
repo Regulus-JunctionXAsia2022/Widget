@@ -1,12 +1,11 @@
 import { Lion, YawnLion } from "./assets";
 import { AiFillHeart } from "react-icons/ai";
-import "./First.scss";
+import "./Home.scss";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "./utils";
 
-const First = () => {
-  const { zep, currentPet } = useAppSelector((state) => ({
-    zep: state.zep.zep,
+const Home = () => {
+  const { currentPet } = useAppSelector((state) => ({
     currentPet: state.zep.currentPet,
   }));
   const [clicked, setClicked] = useState(false);
@@ -24,24 +23,23 @@ const First = () => {
       {clicked ? <YawnLion size={96} /> : <Lion size={96} />}
       <button
         onClick={() => {
-          postMessage({
-            type: "updateFriendship",
-            number:
-              (zep.find((ele) => ele.id == currentPet)?.friendship as number) +
-              1,
-          });
+          window.parent.postMessage(
+            {
+              type: "updateFriendship",
+              friendship: currentPet.friendship + 1,
+            },
+            "*",
+          );
           setClicked(true);
         }}
       >
         <AiFillHeart size={32} />
       </button>
       <div className="friendship-container">
-        <div className="friendship">
-          {zep.find((ele) => ele.id == currentPet)?.friendship as number}
-        </div>
+        <div className="friendship">{currentPet.friendship}</div>
       </div>
     </div>
   );
 };
 
-export default First;
+export default Home;

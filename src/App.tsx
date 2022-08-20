@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./App.css";
-import First from "./First";
+import Home from "./Home";
 import { ParentMessage, useAppDispatch } from "./utils";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <h1>Zepep</h1>
-      <First />
+      <Home />
     </div>
   );
 }
