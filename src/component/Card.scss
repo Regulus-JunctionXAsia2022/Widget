@@ -1,5 +1,42 @@
+@mixin flexCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin noSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .card {
+  @include noSelect();
   width: 278px;
   height: 151px;
+  padding: 15px;
   background-color: #665eb8;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .sprite {
+    width: 100px;
+    height: 120px;
+    background-color: white;
+    @include flexCenter();
+    border: 4px solid #322a87;
+  }
+  .info {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    @include flexCenter();
+    align-items: flex-start;
+  }
 }
