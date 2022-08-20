@@ -3,6 +3,7 @@ export type Pet = {
   name: string;
   user: string;
   friendship: number;
+  created_at: string;
 };
 
 export type ParentMessage = {

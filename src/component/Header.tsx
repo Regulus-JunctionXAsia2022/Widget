@@ -14,6 +14,7 @@ export const Header = () => {
           title="zepep"
         />
         <AiOutlineCloseCircle
+          size={32}
           onClick={() => {
             window.parent.postMessage({ type: "close" }, "*");
           }}

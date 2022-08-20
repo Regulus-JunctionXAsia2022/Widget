@@ -5,20 +5,7 @@ export const zepSlice = createSlice({
   name: "auth",
   initialState: {
     currentPetIndex: 0,
-    pets: [
-      {
-        id: 1,
-        name: "Leo",
-        user: "Regulus",
-        friendship: 101,
-      },
-      {
-        id: 2,
-        name: "Mocha",
-        user: "Regulus",
-        friendship: 101,
-      },
-    ] as Pet[],
+    pets: [] as Pet[],
   },
   reducers: {
     updateFriendship: (
