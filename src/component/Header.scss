@@ -1,8 +1,19 @@
+@mixin noSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .header-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
+  @include noSelect();
+
   .header {
     background-color: #6758ff;
     width: 300px;

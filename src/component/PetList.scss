@@ -1,0 +1,122 @@
+@mixin flexCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin noSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.left-over {
+  width: 300px;
+  height: 415px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .up-button {
+    margin-top: 24px;
+    margin-bottom: 4px;
+    background-color: transparent;
+    color: #d9d9d9;
+    border: none;
+    width: 29px;
+    height: 29px;
+    @include flexCenter();
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+  .down-button {
+    margin-top: 4px;
+    background-color: transparent;
+    color: #d9d9d9;
+    border: none;
+    width: 29px;
+    height: 29px;
+    @include flexCenter();
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+  .divider {
+    margin-top: 40px;
+    margin-bottom: 28px;
+    width: 95px;
+    height: 2px;
+    background-color: #7c7c7c50;
+  }
+
+  .friendship-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 2px solid #ffb4b4;
+    background-color: #ffb4b4;
+    cursor: pointer;
+    width: 199px;
+    height: 37px;
+    position: relative;
+    @include noSelect();
+
+    .heart-icon {
+      @include flexCenter();
+      background-color: #ffb4b4;
+      color: white;
+      padding: 4px;
+      width: 37px;
+      height: 37px;
+      font-size: 28px;
+      border-radius: 5px;
+      overflow: hidden;
+      border: 2px solid #ffb4b4;
+    }
+    .text {
+      width: 162px;
+      height: 100%;
+      @include flexCenter();
+      flex-direction: row;
+      font-size: 12px;
+      @include noSelect();
+
+      strong {
+        margin-right: 4px;
+      }
+    }
+
+    &:hover {
+      .heart-icon {
+        color: #ff4500;
+        -webkit-transition: color 200ms ease-in-out;
+        -ms-transition: color 200ms ease-in-out;
+        transition: color 200ms ease-in-out;
+      }
+    }
+  }
+
+  .edit-button {
+    width: 199px;
+    height: 28px;
+    margin-top: 23px;
+
+    background: #6758ff;
+    border-radius: 5px;
+    @include flexCenter();
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    @include noSelect();
+  }
+}
