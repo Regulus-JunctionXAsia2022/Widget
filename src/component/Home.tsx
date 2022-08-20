@@ -1,10 +1,10 @@
-import { Lion, YawnLion } from "./assets";
+import { Lion, YawnLion } from "../assets";
 import { AiFillHeart } from "react-icons/ai";
 import "./Home.scss";
 import { useEffect, useState } from "react";
-import { useAppSelector } from "./utils";
+import { useAppSelector } from "../hook";
 
-const Home = () => {
+export const Home = () => {
   const { currentPet } = useAppSelector((state) => ({
     currentPet: state.zep.currentPet,
   }));
@@ -41,5 +41,3 @@ const Home = () => {
     </div>
   );
 };
-
-export default Home;
