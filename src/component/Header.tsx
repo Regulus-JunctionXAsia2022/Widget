@@ -1,3 +1,4 @@
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import "./Header.scss";
 
 export const Header = () => {
@@ -11,6 +12,11 @@ export const Header = () => {
           width={104}
           height={70}
           title="zepep"
+        />
+        <AiOutlineCloseCircle
+          onClick={() => {
+            window.parent.postMessage({ type: "close" }, "*");
+          }}
         />
       </div>
       <div className="introduction">ZEPEP since 22.08.21. </div>

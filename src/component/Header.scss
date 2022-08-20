@@ -13,6 +13,7 @@
   justify-content: space-between;
   align-items: flex-end;
   @include noSelect();
+  position: relative;
 
   .header {
     background-color: #6758ff;
@@ -21,6 +22,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
+    svg {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+    }
   }
   .introduction {
     font-size: 12px;
