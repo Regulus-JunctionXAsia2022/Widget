@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "./store";
+import { initialize, updateFriendship } from "./store/zep";
 import { ParentMessage } from "./type";
 
 export const useMessageListener = () => {
@@ -13,14 +14,14 @@ export const useMessageListener = () => {
         if (e.data.result === "success") {
           switch (e.data.type) {
             case "updateFriendship":
-              dispatch({
-                type: "updateFriendship",
-                payload: {
-                  id: e.data.data.id,
+              dispatch(
+                updateFriendship({
                   friendship: e.data.data.friendship,
-                },
-              });
+                }),
+              );
               break;
+            case "initialize":
+              dispatch(initialize(e.data.data));
             default:
               break;
           }
