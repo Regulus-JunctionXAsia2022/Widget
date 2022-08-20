@@ -45,32 +45,33 @@ export const PetList = ({
           >
             <AiFillCaretDown />
           </div>
+          <div className="divider" />
+          <div
+            className="friendship-button"
+            onClick={() => {
+              window.parent.postMessage(
+                {
+                  type: "updateFriendship",
+                  name: convertedPets[currentPetIndex].name,
+                  friendship: convertedPets[currentPetIndex].friendship + 1,
+                  id: convertedPets[currentPetIndex].id,
+                },
+                "*",
+              );
+            }}
+          >
+            <div className="heart-icon">
+              <AiFillHeart />
+            </div>
+            <div className="text">
+              <strong>{convertedPets[currentPetIndex].friendship}</strong>{" "}
+              people love him
+            </div>
+          </div>
         </>
       ) : (
         <BarWave color="#6758ff" />
       )}
-      <div className="divider" />
-      <div
-        className="friendship-button"
-        onClick={() => {
-          window.parent.postMessage(
-            {
-              type: "updateFriendship",
-              name: convertedPets[currentPetIndex].name,
-              friendship: convertedPets[currentPetIndex].friendship + 1,
-              id: convertedPets[currentPetIndex].id,
-            },
-            "*",
-          );
-        }}
-      >
-        <div className="heart-icon">
-          <AiFillHeart />
-        </div>
-        <div className="text">
-          <strong>32k</strong> people love him
-        </div>
-      </div>
       <div
         className="edit-button"
         onClick={() => {

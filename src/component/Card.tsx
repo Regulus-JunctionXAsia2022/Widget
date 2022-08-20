@@ -1,4 +1,4 @@
-import { Lion } from "../assets";
+import { Lion, YoungLion } from "../assets";
 import "./Card.scss";
 
 export const Card = ({
@@ -13,7 +13,7 @@ export const Card = ({
   return (
     <div className="card">
       <div className="sprite">
-        <Lion size={65} />
+        {name === "Mocha" ? <YoungLion /> : <Lion size={65} />}
       </div>
       <div className="info">
         <div className="name">Name: {name}</div>
