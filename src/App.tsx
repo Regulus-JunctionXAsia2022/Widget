@@ -12,12 +12,12 @@ function App() {
       function (e: MessageEvent<ParentMessage>) {
         if (e.data.result === "success") {
           switch (e.data.type) {
-            case "updateFriendShip":
+            case "updateFriendship":
               dispatch({
-                type: "updateFriendShip",
+                type: "updateFriendship",
                 payload: {
                   id: e.data.data.id,
-                  friendShip: e.data.data.friendship,
+                  friendship: e.data.data.friendship,
                 },
               });
               break;

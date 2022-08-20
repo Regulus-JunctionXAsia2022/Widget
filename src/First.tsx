@@ -25,9 +25,9 @@ const First = () => {
       <button
         onClick={() => {
           postMessage({
-            type: "updateFriendShip",
+            type: "updateFriendship",
             number:
-              (zep.find((ele) => ele.id == currentPet)?.friendShip as number) +
+              (zep.find((ele) => ele.id == currentPet)?.friendship as number) +
               1,
           });
           setClicked(true);
@@ -35,9 +35,9 @@ const First = () => {
       >
         <AiFillHeart size={32} />
       </button>
-      <div className="friendShip-container">
-        <div className="friendShip">
-          {zep.find((ele) => ele.id == currentPet)?.friendShip as number}
+      <div className="friendship-container">
+        <div className="friendship">
+          {zep.find((ele) => ele.id == currentPet)?.friendship as number}
         </div>
       </div>
     </div>

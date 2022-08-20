@@ -3,12 +3,12 @@ import { AppDispatch, RootState } from "./store";
 
 export type ChildMessage =
   | { type: "close" }
-  | { type: "updateFriendShip"; number: 100 };
+  | { type: "updateFriendship"; number: 100 };
 export type ParentMessage = {
   result: "success" | "failure";
 } & (
   | {
-      type: "updateFriendShip";
+      type: "updateFriendship";
       data: {
         id: number;
         name: string;

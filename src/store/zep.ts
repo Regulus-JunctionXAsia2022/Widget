@@ -9,23 +9,23 @@ export const zepSlice = createSlice({
       {
         name: "Zepep",
         id: 1,
-        friendShip: 100,
+        friendship: 100,
       },
     ],
   },
   reducers: {
-    updateFriendShip: (
+    updateFriendship: (
       state,
-      action: PayloadAction<{ id: number; friendShip: number }>,
+      action: PayloadAction<{ id: number; friendship: number }>,
     ) => {
-      const { id, friendShip } = action.payload;
+      const { id, friendship } = action.payload;
       const zep = state.zep.find((z) => z.id === id);
       if (zep) {
-        zep.friendShip = friendShip;
+        zep.friendship = friendship;
       }
     },
   },
 });
 
-export const { updateFriendShip } = zepSlice.actions;
+export const { updateFriendship } = zepSlice.actions;
 export const zepReducer = zepSlice.reducer;
