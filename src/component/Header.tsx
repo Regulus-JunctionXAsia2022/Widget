@@ -20,7 +20,6 @@ export const Header = () => {
           }}
         />
       </div>
-      <div className="introduction">ZEPEP since 22.08.21. </div>
     </div>
   );
 };

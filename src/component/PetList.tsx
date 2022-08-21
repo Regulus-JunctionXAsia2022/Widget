@@ -26,6 +26,7 @@ export const PetList = ({
 
   return (
     <div className="left-over">
+      <div className="introduction">ZEPEP since 22.08.21. </div>
       {pets.length > 0 ? (
         <>
           <div
@@ -70,7 +71,13 @@ export const PetList = ({
           </div>
         </>
       ) : (
-        <BarWave color="#6758ff" />
+        <BarWave
+          color="#6758ff"
+          style={{
+            marginTop: 20,
+            marginBottom: 20,
+          }}
+        />
       )}
       <div
         className="edit-button"
@@ -78,7 +85,7 @@ export const PetList = ({
           setShopOpened((state) => !state);
         }}
       >
-        Edit Profile
+        Shop
       </div>
     </div>
   );
