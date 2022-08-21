@@ -1,6 +1,16 @@
-import { AiFillCaretUp, AiFillCaretDown, AiFillHeart } from "react-icons/ai";
+import {
+  AiFillCaretUp,
+  AiFillCaretDown,
+  AiFillHeart,
+  AiFillHome,
+} from "react-icons/ai";
+import { FaDog } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "../hook";
-import { decreaseCurrentIdx, increaseCurrentIdx } from "../store/zep";
+import {
+  decreaseCurrentIdx,
+  increaseCurrentIdx,
+  updateHiddenStatus,
+} from "../store/zep";
 import { Pet } from "../type";
 import { Card } from "./Card";
 import "./PetList.scss";
@@ -11,9 +21,10 @@ export const PetList = ({
 }: {
   setShopOpened: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const { pets, currentPetIndex } = useAppSelector((state) => ({
+  const { pets, currentPetIndex, isHidden } = useAppSelector((state) => ({
     pets: state.zep.pets,
     currentPetIndex: state.zep.currentPetIndex,
+    isHidden: state.zep.isHidden,
   }));
 
   const dispatch = useAppDispatch();
@@ -67,6 +78,35 @@ export const PetList = ({
             <div className="text">
               <strong>{convertedPets[currentPetIndex].friendship}</strong>{" "}
               people love him
+            </div>
+          </div>
+          <div
+            className="hide-button"
+            onClick={() => {
+              if (isHidden) {
+                window.parent.postMessage(
+                  {
+                    type: "show",
+                  },
+                  "*",
+                );
+                dispatch(updateHiddenStatus(false));
+              } else {
+                window.parent.postMessage(
+                  {
+                    type: "hide",
+                  },
+                  "*",
+                );
+                dispatch(updateHiddenStatus(true));
+              }
+            }}
+          >
+            <div className="home-icon">
+              {isHidden ? <FaDog /> : <AiFillHome />}
+            </div>
+            <div className="text">
+              {isHidden ? "Take walk with him" : "Take him into Home"}
             </div>
           </div>
         </>

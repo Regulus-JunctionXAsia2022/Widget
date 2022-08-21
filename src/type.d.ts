@@ -15,4 +15,10 @@ export type ParentMessage = {
     }
   | { type: "change" }
   | { type: "initialize"; data: Pet[] }
+  | {
+      type: "checkHide";
+      data: {
+        hide: boolean;
+      };
+    }
 );

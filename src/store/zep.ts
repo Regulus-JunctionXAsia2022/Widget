@@ -5,6 +5,7 @@ export const zepSlice = createSlice({
   name: "auth",
   initialState: {
     currentPetIndex: 0,
+    isHidden: false,
     pets: [] as Pet[],
   },
   reducers: {
@@ -26,6 +27,9 @@ export const zepSlice = createSlice({
         state.currentPetIndex + 1,
       );
     },
+    updateHiddenStatus: (state, action: PayloadAction<boolean>) => {
+      state.isHidden = action.payload;
+    },
   },
 });
 
@@ -34,5 +38,6 @@ export const {
   initialize,
   decreaseCurrentIdx,
   increaseCurrentIdx,
+  updateHiddenStatus
 } = zepSlice.actions;
 export const zepReducer = zepSlice.reducer;

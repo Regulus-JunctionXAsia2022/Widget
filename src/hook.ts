@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "./store";
-import { initialize, updateFriendship } from "./store/zep";
+import { initialize, updateFriendship, updateHiddenStatus } from "./store/zep";
 import { ParentMessage } from "./type";
 
 export const useMessageListener = () => {
@@ -22,6 +22,10 @@ export const useMessageListener = () => {
               break;
             case "initialize":
               dispatch(initialize(e.data.data));
+              break;
+            case "checkHide":
+              dispatch(updateHiddenStatus(e.data.data.hide));
+              break;
             default:
               break;
           }
@@ -29,6 +33,7 @@ export const useMessageListener = () => {
       },
     );
     window.parent.postMessage({ type: "initialize" }, "*");
+    window.parent.postMessage({ type: "checkHide" }, "*");
   }, []);
 };
 
